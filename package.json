@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tzinov15/SwaggerBank.git"
+    "url": "git+https://github.com/Tzinov15/swagger-bank.git"
   },
   "author": "Alex Tzinov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Tzinov15/SwaggerBank/issues"
+    "url": "https://github.com/Tzinov15/swagger-bank/issues"
   },
-  "homepage": "https://github.com/Tzinov15/SwaggerBank#readme",
+  "homepage": "https://github.com/Tzinov15/swagger-bank#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
