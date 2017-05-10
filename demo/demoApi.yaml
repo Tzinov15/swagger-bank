@@ -1,0 +1,531 @@
+swagger: '2.0'
+info:
+  title: Hiking Guide
+  description: Get the best out of your hiking guides
+  version: 1.0.0
+  contact:
+    name: Alex Tzinov,
+    url: http://www.hiking-guides.com,
+    email: some_email@gmail.com
+host: api.hiking-guides.com
+schemes:
+- https
+basePath: "/v1"
+produces:
+- application/json
+responses:
+  Area:
+    description: An area object
+    schema:
+      type: object
+      "$ref": "#/definitions/area"
+    examples:
+      application/json:
+        area_id: f2552036-3ef9-11e6-beb8-9e71128cae77
+        name: some_random_area_name
+        tag: radar
+        description: some random string for area description
+        trails:
+        - trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+          name: some_random_trail_name
+          description: some random string for trail description
+          distance: 134
+          rating: 1
+        - trail_id: bbc6f0ca-3efa-11e6-beb8-9e71128cae77
+          name: another_random_trail_name
+          description: another random string for trail description
+          distance: 34
+          rating: 3
+        - trail_id: d5ce8802-3efa-11e6-beb8-9e71128cae77
+          name: a third_random_trail_name
+          description: a third random string for trail description
+          distance: 3
+          rating: 5
+  AreaArray:
+    description: An array of areas
+    schema:
+      type: array
+      items:
+        "$ref": "#/definitions/area"
+    examples:
+      application/json:
+      - area_id: f2552036-3ef9-11e6-beb8-9e71128cae77
+        name: some_random_area_name
+        tag: solos
+        description: some random string for area description
+        trails:
+        - trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+          name: some_random_trail_name
+          description: some random string for trail description
+          distance: 134
+          rating: 1
+        - trail_id: bbc6f0ca-3efa-11e6-beb8-9e71128cae77
+          name: another_random_trail_name
+          description: another random string for trail description
+          distance: 34
+          rating: 3
+        - trail_id: d5ce8802-3efa-11e6-beb8-9e71128cae77
+          name: a third_random_trail_name
+          description: a third random string for trail description
+          distance: 3
+          rating: 5
+      - area_id: f2552036-3ef9-11e6-beb8-9e71128cae77
+        name: some_random_area_name
+        tag: civic
+        description: some random string for area description
+        trails:
+        - trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+          name: some_random_trail_name
+          description: some random string for trail description
+          distance: 134
+          rating: 1
+        - trail_id: bbc6f0ca-3efa-11e6-beb8-9e71128cae77
+          name: another_random_trail_name
+          description: another random string for trail description
+          distance: 34
+          rating: 3
+        - trail_id: d5ce8802-3efa-11e6-beb8-9e71128cae77
+          name: a third_random_trail_name
+          description: a third random string for trail description
+          distance: 3
+          rating: 5
+      - area_id: f2552036-3ef9-11e6-beb8-9e71128cae77
+        name: some_random_area_name
+        tag: mom
+        description: some random string for area description
+        trails:
+        - trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+          name: some_random_trail_name
+          description: some random string for trail description
+          distance: 134
+          rating: 1
+        - trail_id: bbc6f0ca-3efa-11e6-beb8-9e71128cae77
+          name: another_random_trail_name
+          description: another random string for trail description
+          distance: 34
+          rating: 3
+        - trail_id: d5ce8802-3efa-11e6-beb8-9e71128cae77
+          name: a third_random_trail_name
+          description: a third random string for trail description
+          distance: 3
+          rating: 5
+      - area_id: f2552036-3ef9-11e6-beb8-9e71128cae77
+        name: some_random_area_name
+        tag: rotator
+        description: some random string for area description
+        trails:
+        - trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+          name: some_random_trail_name
+          description: some random string for trail description
+          distance: 134
+          rating: 1
+        - trail_id: bbc6f0ca-3efa-11e6-beb8-9e71128cae77
+          name: another_random_trail_name
+          description: another random string for trail description
+          distance: 34
+          rating: 3
+        - trail_id: d5ce8802-3efa-11e6-beb8-9e71128cae77
+          name: a third_random_trail_name
+          description: a third random string for trail description
+          distance: 3
+          rating: 5
+  Trail:
+    description: A trail object
+    schema:
+      type: object
+      "$ref": "#/definitions/trail"
+    examples:
+      application/json:
+        trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+        name: a_random_trail_name
+        description: a random string for trail description
+        open: 'false'
+        elevation: 29029
+        distance: 134
+        rating: 1
+  TrailArray:
+    description: An array of trails
+    schema:
+      type: array
+      items:
+        "$ref": "#/definitions/trail"
+    examples:
+      application/json:
+      - trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+        name: a_random_trail_name
+        description: a random string for trail description
+        open: 'true'
+        elevation: 29029
+        distance: 134
+        rating: 1
+      - trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+        name: a_random_trail_name
+        description: a random string for trail description
+        open: 'true'
+        elevation: 29029
+        distance: 134
+        rating: 1
+      - trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+        name: a_random_trail_name
+        description: a random string for trail description
+        open: 'true'
+        elevation: 29029
+        distance: 134
+        rating: 1
+      - trail_id: 590481d2-3efa-11e6-beb8-9e71128cae77
+        name: a_random_trail_name
+        description: a random string for trail description
+        open: 'true'
+        elevation: 29029
+        distance: 134
+        rating: 1
+paths:
+  "/areas":
+    get:
+      description: |
+        This areas endpoint returns information about all of the areas available
+        in the hiking guide. Each area will also contain information about all
+        of the associated trails that are contained inside that area.
+      summary: Get all of the areas in the hiking guide
+      tags:
+      - areas
+      responses:
+        '200':
+          "$ref": "#/responses/AreaArray"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+    post:
+      description: |
+        This areas endpoint supports the creation of new areas by supplying all the
+        required information of the area in the body
+      summary: Add a new area to the hiking guide
+      parameters:
+      - name: body
+        description: The area object that is to be added to the hiking guide
+        in: body
+        required: true
+        schema:
+          "$ref": "#/definitions/area"
+      tags:
+      - areas
+      responses:
+        '201':
+          "$ref": "#/responses/Area"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+  "/areas/{area_id}":
+    get:
+      description: 'Retrieves a single area object containing information about that
+        area, referenced by area_id'
+      parameters:
+      - name: area_id
+        in: path
+        type: string
+        format: uuid
+        required: true
+        description: the unique uuid that identifies this area
+      summary: Get an area by area ID
+      tags:
+      - areas
+      responses:
+        '200':
+          "$ref": "#/responses/Area"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+    put:
+      description: 'This areas endpoint allows a client to edit a preexisting area.'
+      parameters:
+      - name: area_id
+        in: path
+        type: string
+        format: uuid
+        required: true
+        description: the unique uuid that identifies this area
+      - name: body
+        description: The area object that is to be added to the hiking guide
+        in: body
+        required: true
+        schema:
+          "$ref": "#/definitions/area"
+      summary: Edit an existing area by area ID
+      tags:
+      - areas
+      responses:
+        '200':
+          "$ref": "#/responses/Area"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+    delete:
+      description: 'This areas endpoint allows a client to delete an area. This will
+        also delete any trails that are associated with this area '
+      parameters:
+      - name: area_id
+        in: path
+        type: string
+        format: uuid
+        required: true
+        description: the unique uuid that identifies this area
+      summary: Delete an existing area by area ID
+      tags:
+      - areas
+      responses:
+        '200':
+          "$ref": "#/responses/Area"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+  "/areas/{area_id}/trails":
+    get:
+      description: |
+        This trails endpoint returns information about all of the trails available
+        for a particular area in the hiking guide.
+      summary: Get all of the trails for a given area
+      tags:
+      - trails
+      parameters:
+      - name: area_id
+        in: path
+        type: string
+        format: uuid
+        required: true
+        description: the unique uuid that identifies this area
+      responses:
+        '200':
+          "$ref": "#/responses/TrailArray"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+    post:
+      description: 'This trails endpoint allows a client to create a new trail within
+        a particular area'
+      summary: Add a new trail to a given area
+      tags:
+      - trails
+      parameters:
+      - name: area_id
+        in: path
+        type: string
+        format: uuid
+        required: true
+        description: the unique uuid that identifies this area
+      - name: body
+        description: The trail object that is to be added to the hiking guide
+        in: body
+        required: true
+        schema:
+          "$ref": "#/definitions/trail"
+      responses:
+        '201':
+          "$ref": "#/responses/Trail"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+  "/areas/{area_id}/trails/{trail_id}":
+    get:
+      description: |
+        This trails endpoint returns information about all of the trails available
+        for a particular area in the hiking guide.
+      summary: Get a particular trail by trail ID and area ID
+      tags:
+      - trails
+      parameters:
+      - name: area_id
+        in: path
+        type: string
+        format: uuid
+        required: true
+        description: the unique uuid that identifies this area
+      - name: trail_id
+        in: path
+        type: number
+        required: true
+        description: the unique uuid that identifies the particular trail that is
+          desired
+      responses:
+        '200':
+          "$ref": "#/responses/Trail"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+    put:
+      description: 'This trails endpoint allows the client to edit a trail'
+      summary: Edit an existing trail by trail ID and area ID
+      tags:
+      - trails
+      parameters:
+      - name: area_id
+        in: path
+        type: string
+        format: uuid
+        required: true
+        description: the unique uuid that identifies this area
+      - name: trail_id
+        in: path
+        type: number
+        required: true
+        description: the unique uuid that identifies the particular trail that is
+          desired
+      - name: body
+        description: The trail object that is to be added to the hiking guide
+        in: body
+        required: true
+        schema:
+          "$ref": "#/definitions/trail"
+      responses:
+        '200':
+          "$ref": "#/responses/Trail"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+    delete:
+      description: 'This trails endpoint allows a client to delete a trail'
+      summary: Delete an existing trail by trail ID and area ID
+      tags:
+      - trails
+      parameters:
+      - name: area_id
+        in: path
+        type: string
+        format: uuid
+        required: true
+        description: the unique uuid that identifies this area
+      - name: trail_id
+        in: path
+        type: number
+        required: true
+        description: the unique uuid that identifies the particular trail that is
+          desired
+      responses:
+        '200':
+          "$ref": "#/responses/Trail"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+  "/areas/{area_id}/trails/{trail_id}/rocks/{rock_id}/{full_info}":
+    get:
+      description: 'This retrieves information on a rock.'
+      tags:
+      - trails
+      parameters:
+      - name: area_id
+        in: path
+        type: string
+        format: uuid
+        required: true
+        description: the unique uuid that identifies this area
+      - name: trail_id
+        in: path
+        type: number
+        format: uuid
+        required: true
+        description: the unique uuid that identifies the particular trail that is
+          desired
+      - name: rock_id
+        in: path
+        type: integer
+        required: true
+        description: The unique int that identifies the rock
+      - name: full_info
+        in: path
+        type: boolean
+        required: true
+        description: Whether or not to return full info for rock
+      responses:
+        '200':
+          "$ref": "#/responses/Trail"
+        default:
+          description: unexpected error
+          schema:
+            "$ref": "#/definitions/error"
+definitions:
+  area:
+    type: object
+    required:
+    - area_id
+    - name
+    properties:
+      area_id:
+        type: string
+        format: uuid
+        description: The unique identifier that can be used to reference this entity
+      name:
+        type: string
+        description: The human-understandable name used to identify this entity
+      tag:
+        type: string
+        format: palindrome
+        description: Meaningless property that is used to test custom-formatters in
+          SwaggerBank
+      description:
+        type: string
+        maxLength: 300
+        description: A more detailed explanation of the entity
+      trails:
+        type: array
+        items:
+          "$ref": "#/definitions/trail"
+  trail:
+    type: object
+    required:
+    - trail_id
+    - name
+    - distance
+    properties:
+      trail_id:
+        type: string
+        format: uuid
+        description: The unique identifier that can be used to reference this entity
+      name:
+        type: string
+        description: The human-understandable name used to identify this entity
+      description:
+        type: string
+        maxLength: 300
+        description: A more detailed explanation of the entity
+      open:
+        type: boolean
+        description: whether or not the trail is open
+      elevation:
+        type: integer
+        description: the height of the trail
+      distance:
+        type: number
+        format: miles
+        description: The distance of the trail from trail head to the end
+      random_attribute:
+        type: object
+        description: A random object attribute to test handling of undefined property
+          types
+      rating:
+        type: string
+        enum:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        description: A rating from 1-5 of the trail
+  error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string

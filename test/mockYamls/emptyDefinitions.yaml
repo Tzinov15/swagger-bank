@@ -1,0 +1,41 @@
+# This is a sample Hiking Guide API Spec
+swagger: '2.0'
+info:
+  title: Empty Definitions
+  version: "1.0.0"
+  contact:
+    name: Alex Tzinov,
+    url: http://www.hiking-guides.com,
+    email: some_email@gmail.com
+
+# the domain of the service
+host: api.hiking-guides.com
+# array of all schemes that your API supports
+schemes:
+  - https
+paths:
+  /areas/{area_id}/trails/{trail_id}:
+    ### DELETE /areas/{area_id}/trails/{trail_id}
+    delete:
+      description: |
+        This trails endpoint allows a client to delete a trail
+      summary: Delete an existing trail by trail ID and area ID
+      tags:
+        - trails
+      parameters:
+        - name: area_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies this area
+        - name: trail_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies the particular trail that is desired
+      responses:
+        200:
+          description: Successfully deleted the area and all corresponding trails from the hiking guide guide
+      

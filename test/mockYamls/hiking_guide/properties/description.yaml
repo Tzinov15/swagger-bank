@@ -1,0 +1,3 @@
+type: string
+maxLength: 300
+description: A more detailed explanation of the entity

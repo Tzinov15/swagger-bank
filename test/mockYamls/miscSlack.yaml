@@ -1,0 +1,175 @@
+swagger: '2.0'
+schemes:
+  - https
+host: slack.com
+basePath: /api
+info:
+  description: A messaging app for teams
+  termsOfService: 'https://slack.com/terms-of-service/api'
+  title: Slack
+  version: 1.0.0
+  x-logo:
+    url: 'https://api.apis.guru/v2/cache/logo/http_static.tumblr.com_wvuzcz9_LlKncfhmp_slack_logo_240.png'
+  x-origin:
+    format: swagger
+    url: 'https://raw.githubusercontent.com/APIs-guru/unofficial_openapi_specs/master/slack.com/1.0.0/swagger.yaml'
+    version: '2.0'
+  x-preferred: true
+  x-providerName: slack.com
+  x-unofficialSpec: true
+externalDocs:
+  url: 'https://api.slack.com/'
+securityDefinitions:
+  oauth_2_0:
+    authorizationUrl: 'https://slack.com/oauth/authorize'
+    description: ''
+    flow: accessCode
+    scopes:
+      identify: ''
+      post: ''
+      read: ''
+    tokenUrl: 'https://slack.com/api/oauth.access'
+    type: oauth2
+paths:
+  /chats:
+    get:
+      description: Contrived
+      parameters:
+        - description: Channel to fetch history for.
+          in: query
+          name: channel
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/chatUpdate'
+
+  /chatOk:
+    get:
+      description: Contrived
+      parameters:
+        - description: Channel to fetch history for.
+          in: query
+          name: channel
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/chatOk'
+
+  /channels.leave:
+    get:
+      description: Leaves a channel.
+      parameters:
+        - description: Channel to fetch history for.
+          in: query
+          name: channel
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ok'
+
+
+  /users:
+    get:
+      description: Sets the topic for a channel.
+      parameters:
+        - description: Channel to fetch history for.
+          in: query
+          name: channel
+          required: true
+          type: string
+        - description: The new topic
+          in: query
+          name: topic
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/userList'
+  /channels.setTopic:
+    get:
+      description: Sets the topic for a channel.
+      parameters:
+        - description: Channel to fetch history for.
+          in: query
+          name: channel
+          required: true
+          type: string
+        - description: The new topic
+          in: query
+          name: topic
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/topic'
+definitions:
+
+  ### Contrived Example of a simple type ###
+  chatOk:
+    type: string
+
+  ### Contrived Example of an array of simple types###
+  ok:
+    type: array
+    items:
+      type: boolean
+
+  ### Contrived Example of an array of in place defined objects ###
+  topic:
+    type: array
+    items:
+      properties:
+        ok:
+          type: boolean
+        topic:
+          type: string
+      type: object
+
+  chatUpdate:
+    properties:
+      channel:
+        type: string
+      ok:
+        type: boolean
+      text:
+        type: string
+      ts:
+        type: string
+      ### Contrived Example of a property defined elsewhere ###
+      user:
+        $ref: '#/definitions/user'
+    type: object
+
+  user:
+    properties:
+      ok:
+        type: boolean
+      team:
+        type: string
+      team_id:
+        type: string
+      url:
+        type: string
+      user:
+        type: string
+      user_id:
+        type: string
+    type: object
+  ### Contrived Example of an array of referenced objects ###
+  userList:
+    type: array
+    items:
+      $ref: '#/definitions/user'

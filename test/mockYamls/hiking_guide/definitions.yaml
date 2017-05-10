@@ -1,0 +1,6 @@
+area:
+  $ref: 'responses/schemas/area.yaml'
+trail:
+  $ref: 'responses/schemas/trail.yaml'
+error:
+  $ref: 'responses/schemas/error.yaml'

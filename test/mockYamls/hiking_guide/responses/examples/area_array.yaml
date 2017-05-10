@@ -1,0 +1,118 @@
+"application/json": [
+{
+  "area_id": "f2552036-3ef9-11e6-beb8-9e71128cae77",
+  "name": "some_random_area_name",
+  "tag" : "solos",
+  "description": "some random string for area description",
+  "trails": [
+    {
+      "trail_id" : "590481d2-3efa-11e6-beb8-9e71128cae77",
+      "name" : "some_random_trail_name",
+      "description" : "some random string for trail description",
+      "distance" : 134,
+      "rating" : 1
+    },
+    {
+      "trail_id" : "bbc6f0ca-3efa-11e6-beb8-9e71128cae77",
+      "name" : "another_random_trail_name",
+      "description" : "another random string for trail description",
+      "distance" : 34,
+      "rating" : 3
+    },
+    {
+      "trail_id" : "d5ce8802-3efa-11e6-beb8-9e71128cae77",
+      "name" : "a third_random_trail_name",
+      "description" : "a third random string for trail description",
+      "distance" : 3,
+      "rating" : 5
+    }
+  ]
+},
+{
+  "area_id": "f2552036-3ef9-11e6-beb8-9e71128cae77",
+  "name": "some_random_area_name",
+  "tag" : "civic",
+  "description": "some random string for area description",
+  "trails": [
+    {
+      "trail_id" : "590481d2-3efa-11e6-beb8-9e71128cae77",
+      "name" : "some_random_trail_name",
+      "description" : "some random string for trail description",
+      "distance" : 134,
+      "rating" : 1
+    },
+    {
+      "trail_id" : "bbc6f0ca-3efa-11e6-beb8-9e71128cae77",
+      "name" : "another_random_trail_name",
+      "description" : "another random string for trail description",
+      "distance" : 34,
+      "rating" : 3
+    },
+    {
+      "trail_id" : "d5ce8802-3efa-11e6-beb8-9e71128cae77",
+      "name" : "a third_random_trail_name",
+      "description" : "a third random string for trail description",
+      "distance" : 3,
+      "rating" : 5
+    }
+  ]
+},
+{
+  "area_id": "f2552036-3ef9-11e6-beb8-9e71128cae77",
+  "name": "some_random_area_name",
+  "tag" : "mom",
+  "description": "some random string for area description",
+  "trails": [
+    {
+      "trail_id" : "590481d2-3efa-11e6-beb8-9e71128cae77",
+      "name" : "some_random_trail_name",
+      "description" : "some random string for trail description",
+      "distance" : 134,
+      "rating" : 1
+    },
+    {
+      "trail_id" : "bbc6f0ca-3efa-11e6-beb8-9e71128cae77",
+      "name" : "another_random_trail_name",
+      "description" : "another random string for trail description",
+      "distance" : 34,
+      "rating" : 3
+    },
+    {
+      "trail_id" : "d5ce8802-3efa-11e6-beb8-9e71128cae77",
+      "name" : "a third_random_trail_name",
+      "description" : "a third random string for trail description",
+      "distance" : 3,
+      "rating" : 5
+    }
+  ]
+},
+{
+  "area_id": "f2552036-3ef9-11e6-beb8-9e71128cae77",
+  "name": "some_random_area_name",
+  "tag" : "rotator",
+  "description": "some random string for area description",
+  "trails": [
+    {
+      "trail_id" : "590481d2-3efa-11e6-beb8-9e71128cae77",
+      "name" : "some_random_trail_name",
+      "description" : "some random string for trail description",
+      "distance" : 134,
+      "rating" : 1
+    },
+    {
+      "trail_id" : "bbc6f0ca-3efa-11e6-beb8-9e71128cae77",
+      "name" : "another_random_trail_name",
+      "description" : "another random string for trail description",
+      "distance" : 34,
+      "rating" : 3
+    },
+    {
+      "trail_id" : "d5ce8802-3efa-11e6-beb8-9e71128cae77",
+      "name" : "a third_random_trail_name",
+      "description" : "a third random string for trail description",
+      "distance" : 3,
+      "rating" : 5
+    }
+  ]
+}
+]

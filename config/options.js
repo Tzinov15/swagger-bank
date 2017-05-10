@@ -1,0 +1,20 @@
+module.exports = {
+  'string-uuid': '766b0150-3ee2-11e6-beb8-9e71128cae77',
+  'string-email': 'random@email.com',
+  'string-boolean': true,
+  'string-date-time': '2016-07-05T21:54:48.038-07:00',
+  'string-date': '2016-07-05',
+  'string-default': 'ran string',
+  'string-password': 'password1234',
+  'string-uri': 'http://www.example.com',
+  'string-ipv4': 'http://www.example.com',
+  'string-domain': 'example.com',
+  'string-binary': '000000110000000000000011',
+  'string-byte' : 'c3dhZ2dlcmJhbms=',
+  'palindrome': 'racecar',
+  'number-default': 42,
+  'randomStringLength': 10,
+  'randomArrayLength': 3,
+  'minNumber': -50,
+  'maxNumber': 100
+};

@@ -1,0 +1,422 @@
+# This is a sample Hiking Guide API Spec
+swagger: '2.0'
+info:
+  title: Hiking Guide
+  description: Get the best out of your hiking guides
+  version: "1.0.0"
+  contact:
+    name: Alex Tzinov,
+    url: http://www.hiking-guides.com,
+    email: some_email@gmail.com
+# the domain of the service
+host: api.hiking-guides.com
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /v1
+# perhaps this is the return type for responses? Makes sense for a simple API that just returns data in JSON form
+produces:
+  - application/json
+paths:
+  /areas:
+    ### GET /areas
+    get:
+      description: |
+        This areas endpoint returns information about all of the areas available
+        in the hiking guide. Each area will also contain information about all
+        of the associated trails that are contained inside that area.
+      summary: Get all of the areas in the hiking guide
+      tags:
+        - areas
+      responses:
+        200:
+          description: An array containing all of the areas in the hiking guide
+          ## We will return to the client an array of type area. The schema for area is defined below in the definitions section but it could also be referenced elsewhere in a separate file
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/area'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    ### POST /areas
+    post:
+      description: |
+        This areas endpoint supports the creation of new areas by supplying all the
+        required information of the area in the body
+      summary: Add a new area to the hiking guide
+      parameters:
+        - name: body
+          description: The area object that is to be added to the hiking guide
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/area'
+
+      tags:
+        - areas
+      responses:
+        ## We will return to the user the successfully created area object so that they will have the server-generated area_id
+        200:
+          description: The successfully created area object
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/area'
+        400:
+          $ref: "#/responses/400_JSON_Error"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+
+  /areas/{area_id}:
+    ### GET /areas/{area_id}
+    get:
+      description: |
+        Retrieves a single area object containing information about that area, referenced by area_id
+      parameters:
+        - name: area_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies this area
+      summary: Get an area by area ID
+      tags:
+        - areas
+      responses:
+        200:
+          description: The area object that the user requested when specifying area_id
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/area'
+        400:
+          $ref: "#/responses/400_Bad_UUID_Error"
+        404:
+          $ref: "#/responses/404_Error"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    ### PUT /areas/{area_id}
+    put:
+      description: |
+        This areas endpoint allows a client to edit a preexisting area.
+      parameters:
+        - name: area_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies this area
+        - name: body
+          description: The area object that is to be added to the hiking guide
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/area'
+
+      summary: Edit an existing area by area ID
+      tags:
+        - areas
+      responses:
+        ## We will return to the user the successfully created area object so that they will have the server-generated area_id
+        200:
+          description: The successfully created area object
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/area'
+        400:
+          $ref: "#/responses/400_Bad_UUID_Or_JSON_Error"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    ### DELETE /areas/{area_id}
+    delete:
+      description: |
+        This areas endpoint allows a client to delete an area. This will also delete any trails that are associated with this area
+      parameters:
+        - name: area_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies this area
+      summary: Delete an existing area by area ID
+      tags:
+        - areas
+      responses:
+        ## We will return to the user the successfully created area object so that they will have the server-generated area_id
+        200:
+          description: Successfully deleted the area and all corresponding trails from the hiking guide guide
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/area'
+        400:
+          description: Invalid Input, request could not be understood by server. Please provide a properly formatted UUID
+          schema:
+            $ref: '#/definitions/error'
+        404:
+          $ref: "#/responses/404_Error"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+
+  /areas/{area_id}/trails:
+    ### GET /areas/{area_id}/trails
+    get:
+      description: |
+        This trails endpoint returns information about all of the trails available
+        for a particular area in the hiking guide.
+      summary: Get all of the trails for a given area
+      tags:
+        - trails
+      parameters:
+        - name: area_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies this area
+      responses:
+        200:
+          description: An array containing all of the trails in the hiking guide for the particular trail
+          ## We will return to the client an array of type trail. The schema for trail is defined below in the definitions section but it could also be referenced elsewhere in a separate file
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/trail'
+        400:
+          $ref: "#/responses/400_Bad_UUID_Error"
+        404:
+          $ref: "#/responses/404_Error"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    ### POST /areas/{area_id}/trails
+    post:
+      description: |
+        This trails endpoint allows a client to create a new trail within a particular area
+      summary: Add a new trail to a given area
+      tags:
+        - trails
+      parameters:
+        - name: area_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies this area
+        - name: body
+          description: The trail object that is to be added to the hiking guide
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/trail'
+
+      responses:
+        200:
+          description: The newly created trail
+          ## We will return to the client an array of type trail. The schema for trail is defined below in the definitions section but it could also be referenced elsewhere in a separate file
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/trail'
+        404:
+          $ref: "#/responses/404_Error"
+        400:
+          $ref: "#/responses/400_Bad_UUID_Or_JSON_Error"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+
+  /areas/{area_id}/trails/{trail_id}:
+    ### GET /areas/{area_id}/trails/{trail_id}
+    get:
+      description: |
+        This trails endpoint returns information about all of the trails available
+        for a particular area in the hiking guide.
+      summary: Get a particular trail by trail ID and area ID
+      tags:
+        - trails
+      parameters:
+        - name: area_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies this area
+        - name: trail_id
+          in: path
+          type: number
+          required: true
+          description: the unique uuid that identifies the particular trail that is desired
+      responses:
+        200:
+          description: An array containing all of the trails in the hiking guide for the particular trail
+          ## We will return to the client an array of type trail. The schema for trail is defined below in the definitions section but it could also be referenced elsewhere in a separate file
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/trail'
+        404:
+          $ref: "#/responses/404_Error"
+        400:
+          $ref: "#/responses/400_Bad_UUID_Error"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    ### PUT /areas/{area_id}/trails/{trail_id}
+    put:
+      description: |
+        This trails endpoint allows the client to edit a trail
+      summary: Edit an existing trail by trail ID and area ID
+      tags:
+        - trails
+      parameters:
+        - name: area_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies this area
+        - name: trail_id
+          in: path
+          type: number
+          required: true
+          description: the unique uuid that identifies the particular trail that is desired
+        - name: body
+          description: The trail object that is to be added to the hiking guide
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/trail'
+
+      responses:
+        200:
+          description: The successfully edited trail
+          ## We will return to the client an array of type trail. The schema for trail is defined below in the definitions section but it could also be referenced elsewhere in a separate file
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/trail'
+        400:
+          $ref: "#/responses/400_Bad_UUID_Or_JSON_Error"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    ### DELETE /areas/{area_id}/trails/{trail_id}
+    delete:
+      description: |
+        This trails endpoint allows a client to delete a trail
+      summary: Delete an existing trail by trail ID and area ID
+      tags:
+        - trails
+      parameters:
+        - name: area_id
+          in: path
+          type: string
+          format: uuid
+          required: true
+          description: the unique uuid that identifies this area
+        - name: trail_id
+          in: path
+          type: number
+          required: true
+          description: the unique uuid that identifies the particular trail that is desired
+      responses:
+        200:
+          description: Successfully deleted the trail, returns the instance of the trail that was deleted
+          schema:
+            $ref: '#/definitions/trail'
+        404:
+          $ref: "#/responses/404_Error"
+        400:
+          $ref: "#/responses/400_Bad_UUID_Error"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+
+definitions:
+  area:
+    type: object
+    required: ["area_id", "name"]
+    properties:
+      area_id:
+        type: string
+        format: uuid
+        description: The unique identifier that can be used to reference this particular area
+      name:
+        type: string
+        description: Name of the area
+      description:
+        type: string
+        description: Description of the area
+      ## This will define the one-to-many relationship between area and trail. A single area object will contain many trails. Seems like we are establishing an embedded, nested architecture
+      trails:
+        type: array
+        items:
+          $ref: '#/definitions/trail'
+  trail:
+    type: object
+    required: ["trail_id", "name", "distance"]
+    properties:
+      trail_id:
+        type: string
+        format: uuid
+        description: The unique identifier that can be used to reference this particular trail
+      name:
+        type: string
+        description: Name of the trail
+      description:
+        type: string
+        description: Description of the area
+      distance:
+        type: number
+        format: miles
+        description: The distance of the trail from trail head to the end
+      rating:
+        type: string
+        enum: ["1", "2", "3", "4", "5"]
+        description: A rating from 1-5 of the trail
+  error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
+
+responses:
+  404_Error:
+    description: Could not find the resource. Please try a different UUID
+    schema:
+      $ref: '#/definitions/error'
+  400_Bad_UUID_Error:
+    description: Invalid Input, request could not be understood by server. Please provide a properly formatted UUID
+    schema:
+      $ref: '#/definitions/error'
+  400_Bad_UUID_Or_JSON_Error:
+    description: Invalid Input, request could not be understood by server. Please provide properly formatted UUIDs AND a properly formatted JSON body
+    schema:
+      $ref: '#/definitions/error'
+  400_JSON_Error:
+    description: Invalid Input, request could not be understood by server. Make sure the JSON body is properly formatted. See example value
+    schema:
+      $ref: '#/definitions/error'

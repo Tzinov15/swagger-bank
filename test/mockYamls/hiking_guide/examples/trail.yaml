@@ -1,0 +1,9 @@
+"application/json": {
+  "trail_id" : "590481d2-3efa-11e6-beb8-9e71128cae77",
+  "name" : "a_random_trail_name",
+  "description" : "a random string for trail description",
+  "open" : 'false',
+  "elevation" : 29029,
+  "distance" : 134,
+  "rating" : 1
+}

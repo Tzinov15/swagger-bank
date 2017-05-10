@@ -1,0 +1,30 @@
+swagger: '2.0'
+info:
+  title: badFormatSpec
+  version: "1.0.0"
+schemes:
+  - https
+basePath: /v1
+prodasdfuces:
+  - application/json
+paths:
+  /areas:
+    get:
+      description: |
+        This areas endpoint returns information about all of the areas available
+        in the hiking guide. Each area will also contain information about all
+        of the associated trails that are contained inside that area.
+      summary: Get all of the areas in the hiking guide
+      tags:
+        - areas
+      responses:
+        sdafg200:
+          description: An array containing all of the areas in the hiking guide
+          schema:
+            type: array
+            items:
+    asdf          $ref: '#/definitions/area'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'

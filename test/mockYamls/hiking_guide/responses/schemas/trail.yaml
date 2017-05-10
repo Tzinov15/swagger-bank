@@ -1,0 +1,26 @@
+type: object
+required: ["trail_id", "name", "distance"]
+properties:
+  trail_id:
+    $ref: '../../properties/id.yaml'
+  name:
+    $ref: '../../properties/name.yaml'
+  description:
+    $ref: '../../properties/description.yaml'
+  open:
+    type: boolean
+    description: whether or not the trail is open
+  elevation:
+    type: integer
+    description: the height of the trail
+  distance:
+    type: number
+    format: miles
+    description: The distance of the trail from trail head to the end
+  random_attribute:
+    type: object
+    description: A random object attribute to test handling of undefined property types
+  rating:
+    type: string
+    enum: ["1", "2", "3", "4", "5"]
+    description: A rating from 1-5 of the trail

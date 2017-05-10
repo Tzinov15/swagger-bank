@@ -1,0 +1,15 @@
+type: object
+required: ["area_id", "name"]
+properties:
+  area_id:
+    $ref: '../../properties/id.yaml'
+  name:
+    $ref: '../../properties/name.yaml'
+  tag:
+    $ref: '../../properties/tag.yaml'
+  description:
+    $ref: '../../properties/description.yaml'
+  trails:
+    type: array
+    items:
+      $ref: '#/definitions/trail'

@@ -1,0 +1,3 @@
+  type: string
+  format: uuid
+  description: The unique identifier that can be used to reference this entity
