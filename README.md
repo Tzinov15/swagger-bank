@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Tzinov15/swagger-bank.svg?branch=master)](https://travis-ci.org/Tzinov15/swagger-bank)
 [![Coverage Status](https://coveralls.io/repos/github/Tzinov15/swagger-bank/badge.svg?branch=master)](https://coveralls.io/github/Tzinov15/swagger-bank?branch=master)
-<img src="./swaggerbanklogo.png" alt="alt text" width = "400" height="300" >
+<img src="https://raw.githubusercontent.com/Tzinov15/swagger-bank/master/swaggerbanklogo.png" alt="alt text" width = "400" height="300" >
 
 A library to bridge **[Swagger API specifications](http://swagger.io/)** and the **[Mountebank](http://www.mbtest.org/)** Response Stubbing Tool (via interface provided by [Mountebank-Helper](https://github.com/Tzinov15/mountebank-helper)). Pass in your API's Swagger spec file and get a full-blown mocked out version of your API to test against.
 
