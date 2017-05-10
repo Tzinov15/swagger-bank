@@ -27,11 +27,15 @@ api.validateAPI()
 
 ```
 
-To see this in action right now:    
-`git clone https://github.com/Tzinov15/SwaggerBank.git`   
-`cd SwaggerBank`    
-`npm install`   
-`node demo/full.demo.js` from the root of the project.    
+To see this in action right now:
+
+````bash
+git clone https://github.com/Tzinov15/SwaggerBank.git   
+cd SwaggerBank    
+npm install   
+node demo/full.demo.js  # from the root of the project. 
+````
+
 Now navigate to [`localhost:3000/v1/areas`](http://localhost:3000/v1/areas) to see a mocked route in action! This mocked API is
 based on the `demoApi.yaml` Swagger Spec. Explore the spec and play around with the mocked responses. Whenever you're ready, swap in your own spec!
 
