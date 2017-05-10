@@ -1,4 +1,3 @@
-[![js-semistandard-style](https://cdn.rawgit.com/flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)<br>
 [![Build Status](https://travis-ci.org/Tzinov15/SwaggerBank.svg?branch=master)](https://travis-ci.org/Tzinov15/SwaggerBank)
 [![Coverage Status](https://coveralls.io/repos/github/Tzinov15/SwaggerBank/badge.svg?branch=master&bustagain=4)](https://coveralls.io/github/Tzinov15/SwaggerBank?branch=master&bustagain=5)
 
