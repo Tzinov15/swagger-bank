@@ -236,6 +236,13 @@ class API {
           console.error('Your object schema is undefined. This most likely means you are referencing an object that doesn\'t have a definition');
           process.exit(-1);
         }
+        
+        // Does object schema reference itself?
+        if (objectName === refName) {
+          console.error(`Your object ${objectName} has an internal \$ref to itself (${refName})`);
+          process.exit(-1);
+        }
+        
         // Construct our template recursively for the object that is defined at the $ref tag location
         const objectTemplate = this.constructTemplateForRef(objectSchema, objectName);
         refTemplate[property] = { 'type': 'object', 'format': objectTemplate };
