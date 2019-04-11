@@ -28,7 +28,7 @@ api.validateAPI()
 To see this in action right now:
 
 ````bash
-git clone https://github.com/Tzinov15/SwaggerBank.git   
+git clone https://github.com/Tzinov15/swagger-bank.git   
 cd SwaggerBank    
 npm install   
 node demo/full.demo.js  # from the root of the project. 
